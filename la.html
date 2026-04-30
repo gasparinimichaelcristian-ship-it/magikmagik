@@ -33,7 +33,7 @@
   .wordmark{font-size:clamp(40px,6vw,68px);font-weight:400;letter-spacing:.15em;color:var(--white);margin-bottom:40px;display:flex;align-items:center;gap:0;line-height:1;}
   .wordmark span{line-height:1;}
   .star-y{color:#e53935;line-height:1;display:inline-flex;align-items:center;transition:color .2s;font-size:inherit;text-decoration:none;cursor:none;}
-  .star-y:hover{color:var(--yellow);}
+  .star-y:hover{color:var(--green);}
   /* Photo grid */
   .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;margin-top:32px;}
   .photo-slot{aspect-ratio:4/3;background:var(--bg2);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:border-color .2s;overflow:hidden;position:relative;}
@@ -73,7 +73,7 @@
   <div class="gutter" id="gutter"></div>
   <div class="content">
 
-    <div class="wordmark"><span>M</span><span class="star-y">★</span><span>GIK</span></div>
+    <div class="wordmark"><span>M</span><a class="star-y" href="index.html">★</a><span>GIK</span></div>
 
     <span class="L com" data-en>// los angeles — inspirations &amp; visual notes</span>
     <span class="L com" data-it>// los angeles — ispirazioni &amp; note visive</span>
@@ -115,7 +115,7 @@
   document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
   function setLang(l){document.body.className='lang-'+l;document.getElementById('btn-en').classList.toggle('active',l==='en');document.getElementById('btn-it').classList.toggle('active',l==='it');}
   const g=document.getElementById('gutter');
-  for(let i=1;i<=99;i++){const d=document.createElement('div');d.className='ln';d.textContent=i;g.appendChild(d);}
+  for(let i=1;i<=99;i++){const d=document.createElement('div');d.className='ln';d.textContent=i===99?'★':i;if(i===99){d.style.color='#e53935';d.style.fontSize='10px';}g.appendChild(d);}
 </script>
 </body>
 </html>

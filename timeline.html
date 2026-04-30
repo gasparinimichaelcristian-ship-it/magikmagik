@@ -33,7 +33,7 @@
   .wordmark{font-size:clamp(40px,6vw,68px);font-weight:400;letter-spacing:.15em;color:var(--white);margin-bottom:40px;display:flex;align-items:center;gap:0;line-height:1;}
   .wordmark span{line-height:1;}
   .star-back{color:var(--yellow);text-decoration:none;cursor:none;transition:color .2s;font-size:inherit;line-height:1;display:inline-flex;align-items:center;}
-  .star-back:hover{color:var(--green);}
+  .star-back:hover{color:#e53935;}
   .star-la{color:var(--yellow);text-decoration:none;cursor:none;transition:color .2s;display:inline-flex;align-items:center;margin-left:6px;font-size:14px;line-height:1;}
   .star-la:hover{color:#e53935;}
 
@@ -81,7 +81,7 @@
   <div class="gutter" id="gutter"></div>
   <div class="content">
 
-    <div class="wordmark"><span>M</span><a class="star-back" href="index.html">★</a><span>GIK</span></div>
+    <div class="wordmark"><span>M</span><a class="star-back" href="la.html">★</a><span>GIK</span></div>
 
     <span class="L com" data-en>// michael c. gasparini — the vision continues and evolves</span>
     <span class="L com" data-it>// michael c. gasparini — la visione continua e si sviluppa</span>
@@ -181,7 +181,7 @@
   document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
   function setLang(l){document.body.className='lang-'+l;document.getElementById('btn-en').classList.toggle('active',l==='en');document.getElementById('btn-it').classList.toggle('active',l==='it');}
   const g=document.getElementById('gutter');
-  for(let i=1;i<=99;i++){const d=document.createElement('div');d.className='ln';d.textContent=i;g.appendChild(d);}
+  for(let i=1;i<=99;i++){const d=document.createElement('div');d.className='ln';d.textContent=i===99?'★':i;if(i===99){d.style.color='var(--yellow)';d.style.fontSize='10px';}g.appendChild(d);}
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.1});
   document.querySelectorAll('.event').forEach(el=>io.observe(el));
 </script>

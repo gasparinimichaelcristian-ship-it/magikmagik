@@ -24,7 +24,7 @@
   .editor{display:flex;margin-top:38px;min-height:100vh;}
   .gutter{width:52px;flex-shrink:0;background:var(--bg2);border-right:1px solid var(--line);padding-top:40px;user-select:none;}
   .ln{font-size:11px;color:var(--dim);text-align:right;padding-right:14px;height:26.6px;line-height:26.6px;}
-  .content{flex:1;padding:40px 56px 40px 40px;min-width:0;}
+  .content{flex:1;padding:48px 56px 40px 40px;min-width:0;}
   .section{margin-bottom:72px;}
   .sep{display:block;margin:56px 0;border:none;border-top:1px solid var(--line);position:relative;}
   .sep::before{content:attr(data-label);position:absolute;top:-10px;left:0;background:var(--bg);padding-right:16px;font-size:11px;color:var(--green);letter-spacing:.2em;}
@@ -216,7 +216,7 @@
   const scrollIO=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const idx=sectionIds.indexOf(e.target.id);if(idx!==-1)setActiveTab(idx);}});},{threshold:0.3});
   sectionIds.map(id=>document.getElementById(id)).filter(Boolean).forEach(s=>scrollIO.observe(s));
   const g=document.getElementById('gutter');
-  for(let i=1;i<=99;i++){const d=document.createElement('div');d.className='ln';d.textContent=i;g.appendChild(d);}
+  for(let i=1;i<=99;i++){const d=document.createElement('div');d.className='ln';d.textContent=i===99?'★':i;if(i===99){d.style.color='var(--green)';d.style.fontSize='10px';}g.appendChild(d);}
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
