@@ -25,7 +25,7 @@
   .editor{display:flex;margin-top:38px;min-height:100vh;}
   .gutter{width:52px;flex-shrink:0;background:var(--bg2);border-right:1px solid var(--line);padding-top:40px;user-select:none;}
   .ln{font-size:11px;color:var(--dim);text-align:right;padding-right:14px;height:26.6px;line-height:26.6px;}
-  .content{flex:1;padding:48px 56px 100px 40px;min-width:0;}
+  .content{flex:1;padding:48px 56px 40px 40px;min-width:0;}
   .L{display:block;min-height:26.6px;}
   .L.empty{min-height:26.6px;}
   .val{color:var(--green);}.com{color:var(--dim);font-style:italic;}.pun{color:var(--muted);}
@@ -60,7 +60,7 @@
   ::-webkit-scrollbar-thumb{background:#333;}
   body.lang-it [data-en]{display:none;}
   body.lang-en [data-it]{display:none;}
-  @media(max-width:680px){.gutter{width:36px;}.ln{padding-right:8px;font-size:10px;}.content{padding:32px 20px 80px 16px;}.tab{font-size:10px;padding:0 10px;}}
+  @media(max-width:680px){.gutter{width:36px;}.ln{padding-right:8px;font-size:10px;}.content{padding:32px 20px 40px 16px;}.tab{font-size:10px;padding:0 10px;}.wordmark{font-size:clamp(40px,10vw,60px);}.star-back{font-size:clamp(40px,10vw,60px);}}
 </style>
 </head>
 <body class="lang-en">
@@ -181,7 +181,7 @@
   document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
   function setLang(l){document.body.className='lang-'+l;document.getElementById('btn-en').classList.toggle('active',l==='en');document.getElementById('btn-it').classList.toggle('active',l==='it');}
   const g=document.getElementById('gutter');
-  for(let i=1;i<=100;i++){const d=document.createElement('div');d.className='ln';d.textContent=i;g.appendChild(d);}
+  for(let i=1;i<=99;i++){const d=document.createElement('div');d.className='ln';d.textContent=i;g.appendChild(d);}
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.1});
   document.querySelectorAll('.event').forEach(el=>io.observe(el));
 </script>
