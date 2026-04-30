@@ -83,7 +83,8 @@
     .gutter{width:36px;}.ln{padding-right:8px;font-size:10px;}
     .content{padding:32px 20px 40px 16px;}.tab{font-size:10px;padding:0 10px;}
     .wordmark{font-size:clamp(40px,10vw,60px);}
-    .star-link{font-size:clamp(40px,10vw,60px);}
+    .star-link{font-size:clamp(40px,10vw,60px);vertical-align:middle;position:relative;top:-1px;}
+    .L .star-link{font-size:14px !important;vertical-align:middle;top:0;}
   }
 </style>
 </head>
@@ -210,11 +211,8 @@
   document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
   function setLang(l){document.body.className='lang-'+l;document.getElementById('btn-en').classList.toggle('active',l==='en');document.getElementById('btn-it').classList.toggle('active',l==='it');}
   const tabEls=document.querySelectorAll('.tab');
-  const sectionIds=['hero','michael','contact'];
   function setActiveTab(idx){tabEls.forEach((t,i)=>t.classList.toggle('active',i===idx));}
-  function goto(id){if(id==='hero'){window.scrollTo({top:0,behavior:'smooth'});setActiveTab(0);return;}document.getElementById(id).scrollIntoView({behavior:'smooth'});setActiveTab(sectionIds.indexOf(id));}
-  const scrollIO=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const idx=sectionIds.indexOf(e.target.id);if(idx!==-1)setActiveTab(idx);}});},{threshold:0.3});
-  sectionIds.map(id=>document.getElementById(id)).filter(Boolean).forEach(s=>scrollIO.observe(s));
+  function goto(id){if(id==='hero'){window.scrollTo({top:0,behavior:'smooth'});return;}document.getElementById(id).scrollIntoView({behavior:'smooth'});}
   const g=document.getElementById('gutter');
   for(let i=1;i<=99;i++){const d=document.createElement('div');d.className='ln';d.textContent=i===99?'★':i;if(i===99){d.style.color='var(--green)';d.style.fontSize='10px';}g.appendChild(d);}
   const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.06});
