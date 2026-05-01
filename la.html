@@ -40,6 +40,10 @@
   .photo-slot img{width:100%;height:100%;object-fit:cover;display:block;}
   .photo-slot .placeholder{color:var(--dim);font-style:italic;font-size:11px;text-align:center;padding:20px;}
   .photo-slot:hover{border-color:var(--yellow);}
+  .caption{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(to top,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.2) 60%,transparent 100%);display:flex;flex-direction:column;gap:2px;opacity:0;transition:opacity .25s;}
+  .photo-slot:hover .caption{opacity:1;}
+  .cap-desc{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.78);line-height:1.4;}
+  .cap-place{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,0.38);letter-spacing:0.08em;font-style:italic;}
   /* Donate & footer */
   .donate-btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--dim);padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;color:var(--dim);text-decoration:none;transition:border-color .2s,color .2s;cursor:none;margin-top:8px;}
   .donate-btn:hover{border-color:var(--yellow);color:var(--yellow);}
@@ -89,20 +93,62 @@
     <span class="L empty"></span>
 
     <div class="photo-grid" id="photoGrid">
-      <div class="photo-slot"><img src="la-2012-01.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-02.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-03.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-04.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-05.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-06.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-07.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-08.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-09.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-10.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-11.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-12.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-13.jpg" alt="LA 2012"></div>
-      <div class="photo-slot"><img src="la-2012-14.jpg" alt="LA 2012"></div>
+      <div class="photo-slot">
+        <img src="la-2012-01.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">Our Mhotel for 4 months</span><span class="cap-place">Hollywood BLVD</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-02.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">Long story</span><span class="cap-place">Hollywood BLVD</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-03.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">Old projects</span><span class="cap-place">Hollywood BLVD</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-04.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">License</span><span class="cap-place">Venice Beach</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-05.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">Extreme party</span><span class="cap-place">Somewhere near Pico</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-06.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">Tarantino's house</span><span class="cap-place">Mulholland Drive</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-07.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">Terrible skaters</span><span class="cap-place">Venice Beach</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-08.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">No comment</span><span class="cap-place">Runyon Canyon</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-09.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">Good memories</span><span class="cap-place">Runyon Canyon</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-10.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">Ping pong champion</span><span class="cap-place">Banana Bungalow</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-11.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">No comment</span><span class="cap-place">Banana Bungalow</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-12.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">Sketch of the painting they stole from us</span><span class="cap-place">Somewhere in Hollywood</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-13.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">No comment</span><span class="cap-place">Somewhere on Fairfax</span></div>
+      </div>
+      <div class="photo-slot">
+        <img src="la-2012-14.jpg" alt="LA 2012">
+        <div class="caption"><span class="cap-desc">Looking for inspiration</span><span class="cap-place">Somewhere in West Hollywood</span></div>
+      </div>
     </div>
 
     <span class="L empty"></span>
