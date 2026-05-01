@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAGIK — Diary LA</title>
+<title>MAGIK — Diary Works</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#0e0e0e;--bg2:#141414;--line:#1e1e1e;--white:#cccccc;--dim:#444;--green:#4ec994;--yellow:#f5c842;--blue:#5b9cf6;--muted:#555;}
+  :root{--bg:#0e0e0e;--bg2:#141414;--line:#1e1e1e;--white:#cccccc;--dim:#444;--green:#4ec994;--yellow:#f5c842;--blue:#1e90ff;--muted:#555;}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--white);font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.9;overflow-x:hidden;cursor:none;}
@@ -31,8 +31,8 @@
   .com{color:var(--dim);font-style:italic;}
   .wordmark{font-size:clamp(40px,6vw,68px);font-weight:400;letter-spacing:.15em;color:var(--white);margin-bottom:40px;display:flex;align-items:center;gap:0;line-height:1;}
   .wordmark span{line-height:1;}
-  .star-y{color:#e53935;line-height:1;display:inline-flex;align-items:center;transition:color .2s;font-size:inherit;text-decoration:none;cursor:none;}
-  .star-y:hover{color:var(--blue);}
+  .star-b{color:var(--blue);line-height:1;display:inline-flex;align-items:center;transition:color .2s;font-size:inherit;text-decoration:none;cursor:none;}
+  .star-b:hover{color:var(--green);}
   .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;margin-top:16px;}
   .photo-slot{aspect-ratio:4/3;background:var(--bg2);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:border-color .2s;overflow:hidden;position:relative;}
   .photo-slot img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -40,7 +40,6 @@
   .photo-slot:hover{border-color:var(--yellow);}
   .caption{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(to top,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.2) 60%,transparent 100%);display:flex;flex-direction:column;gap:2px;opacity:0;transition:opacity .25s;}
   .photo-slot:hover .caption{opacity:1;}
-  .cap-year{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;font-style:italic;margin-bottom:2px;}
   .cap-desc{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.78);line-height:1.4;}
   .cap-place{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,0.38);letter-spacing:0.08em;font-style:italic;}
   .donate-btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--dim);padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;color:var(--dim);text-decoration:none;transition:border-color .2s,color .2s;cursor:none;margin-top:8px;}
@@ -51,7 +50,7 @@
   ::-webkit-scrollbar-thumb{background:#333;}
   body.lang-it [data-en]{display:none;}
   body.lang-en [data-it]{display:none;}
-  @media(max-width:680px){.gutter{width:36px;}.ln{padding-right:8px;font-size:10px;}.content{padding:32px 20px 40px 16px;}.tab{font-size:10px;padding:0 12px;}.wordmark{font-size:clamp(40px,10vw,60px);}.star-y{font-size:clamp(40px,10vw,60px);transform:translateY(-0.08em);}}
+  @media(max-width:680px){.gutter{width:36px;}.ln{padding-right:8px;font-size:10px;}.content{padding:32px 20px 40px 16px;}.tab{font-size:10px;padding:0 10px;}.wordmark{font-size:clamp(40px,10vw,60px);}.star-b{font-size:clamp(40px,10vw,60px);transform:translateY(-0.08em);}}
 </style>
 </head>
 <body class="lang-en">
@@ -60,8 +59,8 @@
 <div class="topbar">
   <a class="tab" href="index.html"><span class="tab-dot"></span>magik.js</a>
   <a class="tab" href="timeline.html">timeline.js</a>
-  <a class="tab active" href="diary-la.html">diary-LA.js</a>
-  <a class="tab" href="works.html">works.js</a>
+  <a class="tab" href="diary-la.html">diary-LA.js</a>
+  <a class="tab active" href="works.html">works.js</a>
   <div class="topbar-right">
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
     <span class="lang-sep">/</span>
@@ -73,37 +72,18 @@
   <div class="gutter" id="gutter"></div>
   <div class="content">
 
-    <div class="wordmark"><span>M</span><a class="star-y" href="works.html">★</a><span>GIK</span></div>
+    <div class="wordmark"><span>M</span><a class="star-b" href="index.html">★</a><span>GIK</span></div>
 
-    <span class="L com" data-en>// diary LA — a journey that keeps going</span>
-    <span class="L com" data-it>// diary LA — un viaggio che continua</span>
-    <span class="L empty"></span>
-    <span class="L com" data-en>// the vision keeps evolving</span>
-    <span class="L com" data-it>// la visione continua ad evolversi</span>
-    <span class="L com" data-en>// below, some pages from my diary</span>
-    <span class="L com" data-it>// qui sotto, alcune pagine del mio diario</span>
+    <span class="L com" data-en>// diary works — fashion, luxury, branded content</span>
+    <span class="L com" data-it>// diary works — moda, lusso, branded content</span>
     <span class="L empty"></span>
     <span class="L com" data-en>// no AI-generated or AI-manipulated images</span>
     <span class="L com" data-it>// nessuna immagine generata o manipolata con AI</span>
     <span class="L empty"></span>
     <span class="L empty"></span>
 
-    <div class="photo-grid" id="photoGrid">
-      <div class="photo-slot"><img src="la-2012-01.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">Our Mhotel for 4 months</span><span class="cap-place">Hollywood BLVD</span></div></div>
-      <div class="photo-slot"><img src="la-2012-02.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">Long story</span><span class="cap-place">Hollywood BLVD</span></div></div>
-      <div class="photo-slot"><img src="la-2012-03.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">Old projects</span><span class="cap-place">Hollywood BLVD</span></div></div>
-      <div class="photo-slot"><img src="la-2012-04.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">License</span><span class="cap-place">Venice Beach</span></div></div>
-      <div class="photo-slot"><img src="la-2012-05.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">Extreme party</span><span class="cap-place">Somewhere near Pico</span></div></div>
-      <div class="photo-slot"><img src="la-2012-06.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">Tarantino's house</span><span class="cap-place">Mulholland Drive</span></div></div>
-      <div class="photo-slot"><img src="la-2012-07.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">Terrible skaters</span><span class="cap-place">Venice Beach</span></div></div>
-      <div class="photo-slot"><img src="la-2012-08.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">No comment</span><span class="cap-place">Runyon Canyon</span></div></div>
-      <div class="photo-slot"><img src="la-2012-09.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">Good memories</span><span class="cap-place">Runyon Canyon</span></div></div>
-      <div class="photo-slot"><img src="la-2012-10.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">Ping pong champion</span><span class="cap-place">Banana Bungalow</span></div></div>
-      <div class="photo-slot"><img src="la-2012-11.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">No comment</span><span class="cap-place">Banana Bungalow</span></div></div>
-      <div class="photo-slot"><img src="la-2012-12.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">Sketch of the painting they stole from us</span><span class="cap-place">Somewhere in Hollywood</span></div></div>
-      <div class="photo-slot"><img src="la-2012-13.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">No comment</span><span class="cap-place">Somewhere on Fairfax</span></div></div>
-      <div class="photo-slot"><img src="la-2012-14.jpg" alt="LA 2012"><div class="caption"><span class="cap-year">// 2012</span><span class="cap-desc">Looking for inspiration</span><span class="cap-place">Somewhere in West Hollywood</span></div></div>
-    </div>
+    <span class="L com" data-en>// coming soon — work in progress</span>
+    <span class="L com" data-it>// coming soon — in lavorazione</span>
 
     <span class="L empty"></span>
     <span class="L empty"></span>
@@ -126,8 +106,7 @@
   document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
   function setLang(l){document.body.className='lang-'+l;document.getElementById('btn-en').classList.toggle('active',l==='en');document.getElementById('btn-it').classList.toggle('active',l==='it');}
   const g=document.getElementById('gutter');
-  const total=200;
-  for(let i=1;i<=total;i++){const d=document.createElement('div');d.className='ln';d.textContent=i===total?'★':i;if(i===total){d.style.color='#e53935';d.style.fontSize='10px';}g.appendChild(d);}
+  for(let i=1;i<=60;i++){const d=document.createElement('div');d.className='ln';d.textContent=i===60?'★':i;if(i===60){d.style.color='var(--blue)';d.style.fontSize='10px';}g.appendChild(d);}
 </script>
 </body>
 </html>
