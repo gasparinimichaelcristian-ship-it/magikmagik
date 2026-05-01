@@ -83,8 +83,8 @@
     .gutter{width:36px;}.ln{padding-right:8px;font-size:10px;}
     .content{padding:32px 20px 40px 16px;}.tab{font-size:10px;padding:0 10px;}
     .wordmark{font-size:clamp(40px,10vw,60px);}
-    .star-link{font-size:clamp(40px,10vw,60px);vertical-align:middle;position:relative;top:-1px;}
-    .L .star-link{font-size:14px !important;vertical-align:middle;top:0;}
+    .star-link{font-size:clamp(40px,10vw,60px);transform:translateY(-0.08em);}
+    .L .star-link{font-size:14px !important;transform:none;}
   }
 </style>
 </head>
@@ -94,7 +94,8 @@
 <div class="topbar">
   <div class="tab active" onclick="goto('hero')"><span class="tab-dot"></span>magik.js</div>
   <a class="tab" href="timeline.html" style="text-decoration:none;">timeline.js</a>
-  <a class="tab" href="la.html" style="text-decoration:none;">LA.js</a>
+  <a class="tab" href="diary-la.html" style="text-decoration:none;">diary-LA.js</a>
+  <a class="tab" href="diary-works.html" style="text-decoration:none;">diary-works.js</a>
   <div class="topbar-right">
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
     <span class="lang-sep">/</span>
@@ -192,7 +193,7 @@
       <span class="L empty"></span>
       <span class="L empty"></span>
       <span class="L com">// © 2026 MAGIK SRLS — MICHAEL C. GASPARINI · VERONA, IT · P.IVA 05119420239</span>
-      <span class="version">// v1.3 — 2026.04.30</span>
+      <span class="version">// v1.4 — 2026.05.01</span>
     </div>
 
   </div>
