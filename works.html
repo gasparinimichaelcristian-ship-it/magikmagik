@@ -101,23 +101,13 @@
     <div class="works-grid" id="worksGrid">
 
       <div class="work-item" data-category="movie">
-        <div class="video-ratio"><iframe id="yt1" src="https://www.youtube.com/embed/ByCNXPGExMc?rel=0&modestbranding=1&color=white&enablejsapi=1" allowfullscreen allow="autoplay; encrypted-media"></iframe></div>
-        <div class="work-label"><span class="val">"Roberto Cavalli"</span> <span class="pun">—</span> <span class="com">// FW 22-23 · movie</span></div>
-      </div>
-
-      <div class="work-item" data-category="movie">
-        <div class="video-ratio"><iframe id="yt2" src="https://www.youtube.com/embed/AXHUT5j4HP4?rel=0&modestbranding=1&color=white&enablejsapi=1" allowfullscreen allow="autoplay; encrypted-media"></iframe></div>
+        <div class="video-ratio"><video controls playsinline><source src="cavalli-ss23-movie.mp4" type="video/mp4"></video></div>
         <div class="work-label"><span class="val">"Roberto Cavalli"</span> <span class="pun">—</span> <span class="com">// SS 23 · movie</span></div>
       </div>
 
-      <div class="work-item" data-category="movie">
-        <div class="video-ratio"><iframe id="yt3" src="https://www.youtube.com/embed/L7lcIC3lNSI?rel=0&modestbranding=1&color=white&enablejsapi=1" allowfullscreen allow="autoplay; encrypted-media"></iframe></div>
-        <div class="work-label"><span class="val">"Roberto Cavalli"</span> <span class="pun">—</span> <span class="com">// FW 23-24 · movie</span></div>
-      </div>
-
       <div class="work-item" data-category="social">
-        <div class="video-ratio"><video controls playsinline><source src="test-social.mp4" type="video/mp4"></video></div>
-        <div class="work-label"><span class="com">// test · social</span></div>
+        <div class="video-ratio"><video controls playsinline><source src="cavalli-teaser-fp.mp4" type="video/mp4"></video></div>
+        <div class="work-label"><span class="val">"Roberto Cavalli"</span> <span class="pun">—</span> <span class="com">// Teaser FP · social</span></div>
       </div>
 
     </div>
@@ -138,7 +128,6 @@
   </div>
 </div>
 
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
   const cur=document.getElementById('cursor');
   document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
@@ -147,18 +136,15 @@
   setTimeout(hintTabs,1500);setInterval(hintTabs,15000);
   const g=document.getElementById('gutter');
   for(let i=1;i<=60;i++){const d=document.createElement('div');d.className='ln';d.textContent=i===60?'★':i;if(i===60){d.style.color='var(--blue)';d.style.fontSize='10px';}g.appendChild(d);}
-
-  var players=[];
-  function onYouTubeIframeAPIReady(){
-    ['yt1','yt2','yt3'].forEach(function(id){
-      players.push(new YT.Player(id,{events:{onStateChange:onPlayerStateChange}}));
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.works-grid video').forEach(function(vid){
+      vid.addEventListener('play',function(){
+        document.querySelectorAll('.works-grid video').forEach(function(other){
+          if(other!==vid)other.pause();
+        });
+      });
     });
-  }
-  function onPlayerStateChange(e){
-    if(e.data===YT.PlayerState.PLAYING){
-      players.forEach(function(p){if(p.getIframe().id!==e.target.getIframe().id)p.pauseVideo();});
-    }
-  }
+  });
   function filterWorks(cat){
     document.querySelectorAll('.work-item').forEach(function(item){
       item.style.display=(cat==='all'||item.dataset.category===cat)?'':'none';
