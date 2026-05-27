@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MAGIK — Film. CGI. Artificial Imaginations.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;1,300&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{--bg:#0e0e0e;--bg2:#141414;--line:#1e1e1e;--white:#cccccc;--dim:#444;--green:#4ec994;--muted:#555;--yellow:#f5c842;--blue:#1e90ff;}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -64,9 +64,25 @@
     .wordmark{font-size:clamp(40px,10vw,60px);}
     .star-link{transform:translateY(-0.08em);}
   }
+  /* ── MODE TOGGLE ── */
+  .mode-toggle{background:none;border:none;border-left:1px solid var(--line);cursor:none;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);padding:0 12px;height:38px;letter-spacing:.04em;transition:color .2s;}
+  .mode-toggle:hover{color:var(--white);}
+  body.mode-readable .mode-toggle{color:var(--green);}
+  /* ── READABLE MODE ── */
+  body.mode-readable{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.75;}
+  body.mode-readable .topbar{background:rgba(14,14,14,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.07);}
+  body.mode-readable .tab{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.01em;border-right:none;padding:0 22px;}
+  body.mode-readable .tab.active{background:rgba(255,255,255,0.05);border-bottom-width:2px;}
+  body.mode-readable .tab-dot{display:none;}
+  body.mode-readable .lang-btn{font-family:'Plus Jakarta Sans',sans-serif;}
+  body.mode-readable .wordmark{font-family:'Plus Jakarta Sans',sans-serif;font-weight:300;letter-spacing:.08em;}
+  body.mode-readable .L,body.mode-readable .com,body.mode-readable .val,body.mode-readable .pun,body.mode-readable .key{font-family:'Plus Jakarta Sans',sans-serif;}
+  body.mode-readable .donate-btn{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.05em;}
+  body.mode-readable .sep::before{font-family:'Plus Jakarta Sans',sans-serif;}
+  body.mode-readable a.vl{font-family:'Plus Jakarta Sans',sans-serif;}
 </style>
 </head>
-<body class="lang-en">
+<body class="lang-en"><script>if(localStorage.getItem('magik-mode')==='readable')document.body.classList.add('mode-readable');</script>
 <div class="cursor" id="cursor"></div>
 
 <div class="topbar">
@@ -78,6 +94,7 @@
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
     <span class="lang-sep">/</span>
     <button class="lang-btn" id="btn-it" onclick="setLang('it')">IT</button>
+    <button class="mode-toggle" id="mode-toggle" onclick="toggleMode()" title="Toggle readable mode">Aa</button>
   </div>
 </div>
 
@@ -167,7 +184,8 @@
 <script>
   const cur = document.getElementById('cursor');
   document.addEventListener('mousemove', e => { cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px'; });
-  function setLang(l){ document.body.className = 'lang-' + l; document.getElementById('btn-en').classList.toggle('active', l === 'en'); document.getElementById('btn-it').classList.toggle('active', l === 'it'); }
+  function setLang(l){var r=document.body.classList.contains('mode-readable');document.body.className='lang-'+l+(r?' mode-readable':'');document.getElementById('btn-en').classList.toggle('active',l==='en');document.getElementById('btn-it').classList.toggle('active',l==='it');}
+  function toggleMode(){var r=document.body.classList.contains('mode-readable');var lc=document.body.classList.contains('lang-it')?'lang-it':'lang-en';document.body.className=lc+(r?'':' mode-readable');localStorage.setItem('magik-mode',r?'dev':'readable');}
   function hintTabs(){var t=Array.from(document.querySelectorAll('.topbar .tab:not(.active)'));t.forEach(function(tab,i){setTimeout(function(){tab.style.color='var(--white)';setTimeout(function(){tab.style.color='';},700);},i*650);});}
   setTimeout(hintTabs,1500);setInterval(hintTabs,15000);
   const g = document.getElementById('gutter');
