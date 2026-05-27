@@ -65,7 +65,7 @@
     .star-link{transform:translateY(-0.08em);}
   }
   /* ── MODE TOGGLE ── */
-  .mode-toggle{background:none;border:1px solid var(--line);border-radius:50px;cursor:none;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);padding:3px 9px;height:auto;letter-spacing:.08em;transition:color .2s,border-color .2s;margin:0 10px;flex-shrink:0;}
+  .mode-toggle{background:none;border:1px solid var(--line);border-radius:50%;cursor:none;font-size:13px;color:var(--muted);padding:0;width:26px;height:26px;display:flex;align-items:center;justify-content:center;line-height:1;transition:color .2s,border-color .2s;margin:0 10px;flex-shrink:0;}
   .mode-toggle:hover{color:var(--white);border-color:var(--dim);}
   body.mode-readable .mode-toggle{color:var(--green);border-color:rgba(78,201,148,.35);}
   /* ── READABLE MODE ── */
@@ -112,7 +112,27 @@
   body.mode-readable .r-collab-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:var(--muted);letter-spacing:.06em;font-style:italic;margin-bottom:6px;}
   body.mode-readable .r-collab-list{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dim);line-height:1.85;}
   .mode-toggle-mobile{display:none;}
-  @media(max-width:680px){.topbar .mode-toggle{display:none;}.mode-toggle-mobile{display:inline-flex;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:50px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;padding:4px 12px;cursor:none;transition:color .2s,border-color .2s;margin-bottom:24px;}body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}body.mode-readable .tab{padding:0 10px!important;font-size:10px!important;}}
+  @media(max-width:680px){.topbar .mode-toggle{display:none;}.mode-toggle-mobile{display:inline-flex;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:50%;color:var(--muted);font-size:16px;padding:0;width:32px;height:32px;cursor:none;transition:color .2s,border-color .2s;margin-bottom:24px;}body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}body.mode-readable .tab{padding:0 10px!important;font-size:10px!important;}}
+  /* ── DEV MODE star size ── */
+  body:not(.mode-readable) .wordmark .star-link{font-size:1.15em;}
+  /* ── READABLE MICHAEL ── */
+  .readable-michael{display:none;}
+  body.mode-readable .readable-michael{display:block;margin-bottom:28px;}
+  body.mode-readable .readable-michael .r-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:var(--white);margin-bottom:4px;letter-spacing:.01em;}
+  body.mode-readable .readable-michael .r-role-line{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--muted);letter-spacing:.04em;margin-bottom:22px;}
+  body.mode-readable #michael-section>.L{display:none;}
+  /* ── READABLE MAGIK section — only video ── */
+  body.mode-readable #hero .text-side{display:none;}
+  body.mode-readable #hero .two-col{grid-template-columns:1fr;}
+  body.mode-readable #hero .video-side{max-width:540px;}
+  body.mode-readable .sep[data-label="// magik"]{display:none;}
+  /* ── READABLE CONTACT ── */
+  .readable-contact{display:none;}
+  body.mode-readable .readable-contact{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+  body.mode-readable .readable-contact a{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--white);text-decoration:none;display:grid;grid-template-columns:90px 1fr;align-items:center;transition:color .2s;}
+  body.mode-readable .readable-contact a:hover{color:var(--yellow);}
+  body.mode-readable .readable-contact .rc-type{font-size:11px;color:var(--muted);letter-spacing:.06em;}
+  body.mode-readable .contact-code-block{display:none;}
 </style>
 </head>
 <body class="lang-en"><script>if(localStorage.getItem('magik-mode')==='readable')document.body.classList.add('mode-readable');</script>
@@ -127,7 +147,7 @@
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
     <span class="lang-sep">/</span>
     <button class="lang-btn" id="btn-it" onclick="setLang('it')">IT</button>
-    <button class="mode-toggle" id="mode-toggle" onclick="toggleMode()" title="Toggle readable mode">press</button>
+    <button class="mode-toggle" id="mode-toggle" onclick="toggleMode()" title="Toggle readable mode">◐</button>
   </div>
 </div>
 
@@ -136,10 +156,16 @@
   <div class="content">
 
     <div class="wordmark"><span>M</span><a class="star-link" href="works.html" title="Works">★</a><span>GIK</span></div>
-    <button class="mode-toggle-mobile" onclick="toggleMode()">press</button>
+    <button class="mode-toggle-mobile" onclick="toggleMode()">◐</button>
 
     <!-- MICHAEL SECTION (FIRST) -->
     <div class="section" id="michael-section">
+      <div class="readable-michael">
+        <p class="r-name">Michael C. Gasparini</p>
+        <p class="r-role-line" data-en>Director &amp; Founder of MAGIK · Verona, IT · Los Angeles, CA</p>
+        <p class="r-role-line" data-it>Regista e Fondatore di MAGIK · Verona, IT · Los Angeles, CA</p>
+        <div class="r-tags"><span>Film &amp; Video</span><span>CGI</span><span>AI</span></div>
+      </div>
       <span class="L com">// <a class="star-michael" href="michael.html" title="Michael C. Gasparini">★</a> michaelcgasparini — director, founder of magik</span>
       <span class="L empty"></span>
       <span class="L" data-en><span class="pun">role:   </span><span class="val">"director"</span></span>
