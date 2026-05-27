@@ -87,7 +87,26 @@
   body.mode-readable .pun{color:var(--dim);}
   body.mode-readable .key{font-weight:400;}
   body.mode-readable .com{font-style:italic;letter-spacing:.01em;}
-  body.mode-readable .sep::before{color:var(--dim);}
+  body.mode-readable .sep::before{color:var(--dim);content:attr(data-rlabel);letter-spacing:.14em;}
+  /* Gutter + layout */
+  body.mode-readable .gutter{display:none;}
+  body.mode-readable .editor{justify-content:center;}
+  body.mode-readable .content{max-width:760px;}
+  /* Readable MAGIK section */
+  .readable-hero{display:none;}
+  body.mode-readable .readable-hero{display:block;margin-bottom:8px;}
+  body.mode-readable #hero .text-side>.L{display:none;}
+  body.mode-readable .r-loc{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:28px;}
+  body.mode-readable .r-lead{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:300;line-height:1.4;color:var(--white);margin-bottom:16px;}
+  body.mode-readable .r-body{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;color:var(--dim);line-height:1.8;margin-bottom:28px;}
+  body.mode-readable .r-note{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--muted);font-style:italic;margin-top:8px;}
+  body.mode-readable .r-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+  body.mode-readable .r-tags span{font-family:'Plus Jakarta Sans',sans-serif;border:1px solid var(--line);color:var(--dim);font-size:11px;padding:5px 16px;border-radius:20px;letter-spacing:.04em;}
+  /* Video label */
+  body.mode-readable .video-label{font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;color:var(--muted);font-size:12px;margin-bottom:10px;}
+  /* Donate CTA */
+  body.mode-readable .donate-btn{background:var(--bg2);border-color:var(--line);border-radius:2px;}
+  body.mode-readable .donate-btn:hover{background:none;border-color:var(--green);color:var(--green);}
   .mode-toggle-mobile{display:none;}
   @media(max-width:680px){.topbar .mode-toggle{display:none;}.mode-toggle-mobile{display:inline-flex;align-items:center;background:none;border:1px solid var(--line);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;padding:3px 10px;cursor:none;transition:color .2s,border-color .2s;margin-bottom:24px;}body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}}
 </style>
@@ -136,12 +155,27 @@
       <span class="L"><span class="val">"Rue Madam Paris", "6AM"</span></span>
     </div>
 
-    <hr class="sep reveal" data-label="// magik">
+    <hr class="sep reveal" data-label="// magik" data-rlabel="magik">
 
     <!-- MAGIK SECTION (SECOND) — video on the right -->
     <div class="section reveal" id="hero">
       <div class="two-col">
         <div class="text-side">
+          <div class="readable-hero">
+            <p class="r-loc" data-en>magikmagik.it · Verona, IT · founded 2025</p>
+            <p class="r-loc" data-it>magikmagik.it · Verona, IT · fondato 2025</p>
+            <p class="r-lead" data-en>A creative lab built around film and technology chosen with purpose.</p>
+            <p class="r-lead" data-it>Un laboratorio creativo costruito attorno al film e alla tecnologia scelta con intenzione.</p>
+            <p class="r-body" data-en>Real set when it matters. CGI when it's smarter. AI when it's faster — or simply impossible otherwise.</p>
+            <p class="r-body" data-it>Real set quando conta. CGI quando è più smart. AI quando è più veloce — o semplicemente impossibile altrimenti.</p>
+            <div class="r-tags">
+              <span>Film & Video</span>
+              <span>CGI</span>
+              <span>AI Acceleration</span>
+            </div>
+            <p class="r-note" data-en>Wide technical skills — sharper creative identity, smarter delegation.</p>
+            <p class="r-note" data-it>Competenze tecniche ampie — identità creativa più precisa, delega più intelligente.</p>
+          </div>
           <span class="L com" data-en>// magikmagik.it — founded 2025 — verona, it</span>
           <span class="L com" data-it>// magikmagik.it — fondata 2025 — verona, it</span>
           <span class="L empty"></span>
@@ -169,7 +203,7 @@
       </div>
     </div>
 
-    <hr class="sep reveal" data-label="// contact">
+    <hr class="sep reveal" data-label="// contact" data-rlabel="contact">
     <div class="section reveal" id="contact">
       <span class="L"><span class="pun">email:     </span><a class="vl" href="mailto:maikproject@yahoo.it"><span class="val">"maikproject@yahoo.it"</span></a></span>
       <span class="L"><span class="pun">youtube:   </span><a class="vl" href="https://youtube.com/@heymagikmagik" target="_blank"><span class="val">"@heymagikmagik"</span></a></span>
