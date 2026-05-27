@@ -69,7 +69,7 @@
   .mode-toggle:hover{color:var(--white);}
   body.mode-readable .mode-toggle{color:var(--green);}
   /* ── READABLE MODE ── */
-  body.mode-readable{--bg:#F7F4EF;--bg2:#EDEAE4;--line:#D5CFC8;--white:#1C1A18;--dim:#9A9590;--muted:#7A7570;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.75;background:var(--bg);color:var(--white);}
+  body.mode-readable{--bg:#F7F4EF;--bg2:#EDEAE4;--line:#D5CFC8;--white:#1C1A18;--dim:#9A9590;--muted:#7A7570;--yellow:#7A5500;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.75;background:var(--bg);color:var(--white);}
   body.mode-readable .topbar{background:rgba(237,234,228,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.08);}
   body.mode-readable ::-webkit-scrollbar-track{background:var(--bg2);}
   body.mode-readable ::-webkit-scrollbar-thumb{background:#C5BFB8;}
@@ -83,12 +83,13 @@
   body.mode-readable .sep::before{font-family:'Plus Jakarta Sans',sans-serif;}
   body.mode-readable a.vl{font-family:'Plus Jakarta Sans',sans-serif;}
   body.mode-readable .cursor{background:var(--dim);}
-  body.mode-readable .gutter{display:none;}
   body.mode-readable .val{color:var(--white);}
   body.mode-readable .pun{color:var(--dim);}
-  body.mode-readable .key{font-weight:600;color:var(--white);}
-  body.mode-readable .com{font-style:normal;letter-spacing:.04em;}
+  body.mode-readable .key{font-weight:400;}
+  body.mode-readable .com{font-style:italic;letter-spacing:.01em;}
   body.mode-readable .sep::before{color:var(--dim);}
+  .mode-toggle-mobile{display:none;}
+  @media(max-width:680px){.topbar .mode-toggle{display:none;}.mode-toggle-mobile{display:inline-flex;align-items:center;background:none;border:1px solid var(--line);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;padding:3px 10px;cursor:none;transition:color .2s,border-color .2s;margin-bottom:24px;}body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}}
 </style>
 </head>
 <body class="lang-en"><script>if(localStorage.getItem('magik-mode')==='readable')document.body.classList.add('mode-readable');</script>
@@ -112,6 +113,7 @@
   <div class="content">
 
     <div class="wordmark"><span>M</span><a class="star-link" href="works.html" title="Works">★</a><span>GIK</span></div>
+    <button class="mode-toggle-mobile" onclick="toggleMode()">Aa</button>
 
     <!-- MICHAEL SECTION (FIRST) -->
     <div class="section" id="michael-section">
@@ -151,7 +153,7 @@
           <span class="L" data-en><span class="pun">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="val">AI when it's faster or simply impossible otherwise"</span></span>
           <span class="L" data-it><span class="pun">approccio:</span><span class="val"> "real set quando conta, CGI quando è più smart,</span></span>
           <span class="L" data-it><span class="pun">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="val">AI quando è più veloce o semplicemente impossibile altrimenti"</span></span>
-          <span class="L"><span class="pun">services: </span><span class="key">[ "FILM &amp; VIDEO", "CGI", "AI ACCELERATION" ]</span></span>
+          <span class="L"><span class="pun">services: </span><span class="key">[ "Film & Video", "CGI", "AI Acceleration" ]</span></span>
           <span class="L" data-en><span class="com">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// creative projects that go beyond the single video</span></span>
           <span class="L" data-it><span class="com">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// progetti creativi che vanno oltre il singolo video</span></span>
           <span class="L empty"></span>
