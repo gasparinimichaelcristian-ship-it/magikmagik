@@ -65,14 +65,14 @@
     .star-link{transform:translateY(-0.08em);}
   }
   /* ── MODE TOGGLE ── */
-  .mode-toggle{background:none;border:none;border-left:1px solid var(--line);cursor:none;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);padding:0 12px;height:38px;letter-spacing:.04em;transition:color .2s;}
-  .mode-toggle:hover{color:var(--white);}
-  body.mode-readable .mode-toggle{color:var(--green);}
+  .mode-toggle{background:none;border:1px solid var(--line);border-radius:50px;cursor:none;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);padding:3px 9px;height:auto;letter-spacing:.08em;transition:color .2s,border-color .2s;margin:0 10px;flex-shrink:0;}
+  .mode-toggle:hover{color:var(--white);border-color:var(--dim);}
+  body.mode-readable .mode-toggle{color:var(--green);border-color:rgba(78,201,148,.35);}
   /* ── READABLE MODE ── */
-  body.mode-readable{--bg:#F7F4EF;--bg2:#EDEAE4;--line:#D5CFC8;--white:#1C1A18;--dim:#9A9590;--muted:#7A7570;--yellow:#7A5500;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.75;background:var(--bg);color:var(--white);}
-  body.mode-readable .topbar{background:rgba(237,234,228,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.08);}
+  body.mode-readable{--bg:#EDE8DF;--bg2:#E3DDD4;--line:#D0C9BE;--white:#1C1A18;--dim:#9A9590;--muted:#7A7570;--yellow:#7A5500;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.75;background:var(--bg);color:var(--white);}
+  body.mode-readable .topbar{background:rgba(227,221,212,0.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.07);}
   body.mode-readable ::-webkit-scrollbar-track{background:var(--bg2);}
-  body.mode-readable ::-webkit-scrollbar-thumb{background:#C5BFB8;}
+  body.mode-readable ::-webkit-scrollbar-thumb{background:#B8B0A5;}
   body.mode-readable .tab{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.01em;border-right:none;padding:0 22px;}
   body.mode-readable .tab.active{background:rgba(255,255,255,0.05);border-bottom-width:2px;}
   body.mode-readable .tab-dot{display:none;}
@@ -89,9 +89,7 @@
   body.mode-readable .com{font-style:italic;letter-spacing:.01em;}
   body.mode-readable .sep::before{color:var(--dim);content:attr(data-rlabel);letter-spacing:.14em;}
   /* Gutter + layout */
-  body.mode-readable .gutter{display:none;}
-  body.mode-readable .editor{justify-content:center;}
-  body.mode-readable .content{max-width:760px;}
+  body.mode-readable .gutter{display:none!important;}
   /* Readable MAGIK section */
   .readable-hero{display:none;}
   body.mode-readable .readable-hero{display:block;margin-bottom:8px;}
@@ -107,8 +105,14 @@
   /* Donate CTA */
   body.mode-readable .donate-btn{background:var(--bg2);border-color:var(--line);border-radius:2px;}
   body.mode-readable .donate-btn:hover{background:none;border-color:var(--green);color:var(--green);}
+  /* Collaborations readable */
+  .readable-collabs{display:none;}
+  body.mode-readable .readable-collabs{display:block;}
+  body.mode-readable .collab-block>.L{display:none;}
+  body.mode-readable .r-collab-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:var(--muted);letter-spacing:.06em;font-style:italic;margin-bottom:6px;}
+  body.mode-readable .r-collab-list{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dim);line-height:1.85;}
   .mode-toggle-mobile{display:none;}
-  @media(max-width:680px){.topbar .mode-toggle{display:none;}.mode-toggle-mobile{display:inline-flex;align-items:center;background:none;border:1px solid var(--line);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;padding:3px 10px;cursor:none;transition:color .2s,border-color .2s;margin-bottom:24px;}body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}}
+  @media(max-width:680px){.topbar .mode-toggle{display:none;}.mode-toggle-mobile{display:inline-flex;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:50px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;padding:4px 12px;cursor:none;transition:color .2s,border-color .2s;margin-bottom:24px;}body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}body.mode-readable .tab{padding:0 10px!important;font-size:10px!important;}}
 </style>
 </head>
 <body class="lang-en"><script>if(localStorage.getItem('magik-mode')==='readable')document.body.classList.add('mode-readable');</script>
@@ -123,7 +127,7 @@
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
     <span class="lang-sep">/</span>
     <button class="lang-btn" id="btn-it" onclick="setLang('it')">IT</button>
-    <button class="mode-toggle" id="mode-toggle" onclick="toggleMode()" title="Toggle readable mode">Aa</button>
+    <button class="mode-toggle" id="mode-toggle" onclick="toggleMode()" title="Toggle readable mode">press</button>
   </div>
 </div>
 
@@ -132,7 +136,7 @@
   <div class="content">
 
     <div class="wordmark"><span>M</span><a class="star-link" href="works.html" title="Works">★</a><span>GIK</span></div>
-    <button class="mode-toggle-mobile" onclick="toggleMode()">Aa</button>
+    <button class="mode-toggle-mobile" onclick="toggleMode()">press</button>
 
     <!-- MICHAEL SECTION (FIRST) -->
     <div class="section" id="michael-section">
@@ -147,12 +151,19 @@
       <span class="L" data-en><span class="com">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// fashion films, branded content, animatic</span></span>
       <span class="L" data-it><span class="com">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// fashion film, branded content, animatic</span></span>
       <span class="L empty"></span>
-      <span class="L com" data-en>// selected collaborations</span>
-      <span class="L com" data-it>// collaborazioni selezionate</span>
-      <span class="L"><span class="val">"Tezenis", "Falconeri", "Intimissimi", "Calzedonia", "Emporio Armani",</span></span>
-      <span class="L"><span class="val">"Versace Jeans", "Bulgari", "Diesel", "Tommy Hilfiger", "Roberto Cavalli",</span></span>
-      <span class="L"><span class="val">"Puma", "SKY", "Damiani", "Sportmax", "Pasquale Bruni", "Great Lengths",</span></span>
-      <span class="L"><span class="val">"Rue Madam Paris", "6AM"</span></span>
+      <div class="collab-block">
+        <span class="L com" data-en>// selected collaborations</span>
+        <span class="L com" data-it>// collaborazioni selezionate</span>
+        <span class="L"><span class="val">"Tezenis", "Falconeri", "Intimissimi", "Calzedonia", "Emporio Armani",</span></span>
+        <span class="L"><span class="val">"Versace Jeans", "Bulgari", "Diesel", "Tommy Hilfiger", "Roberto Cavalli",</span></span>
+        <span class="L"><span class="val">"Puma", "SKY", "Damiani", "Sportmax", "Pasquale Bruni", "Great Lengths",</span></span>
+        <span class="L"><span class="val">"Rue Madam Paris", "6AM"</span></span>
+        <div class="readable-collabs">
+          <p class="r-collab-label" data-en>Selected collaborations</p>
+          <p class="r-collab-label" data-it>Collaborazioni selezionate</p>
+          <p class="r-collab-list">Tezenis, Falconeri, Intimissimi, Calzedonia, Emporio Armani, Versace Jeans, Bulgari, Diesel, Tommy Hilfiger, Roberto Cavalli, Puma, SKY, Damiani, Sportmax, Pasquale Bruni, Great Lengths, Rue Madam Paris, 6AM</p>
+        </div>
+      </div>
     </div>
 
     <hr class="sep reveal" data-label="// magik" data-rlabel="magik">
