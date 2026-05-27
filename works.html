@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#0e0e0e;--bg2:#141414;--line:#1e1e1e;--white:#cccccc;--dim:#444;--green:#4ec994;--yellow:#f5c842;--blue:#1e90ff;--muted:#555;}
+  :root{--bg:#0e0e0e;--bg2:#141414;--line:#1e1e1e;--white:#cccccc;--dim:#444;--green:#4ec994;--yellow:#f5c842;--blue:#1e90ff;--muted:#555;--orange:#f97316;}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{background:var(--bg);color:var(--white);font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.9;overflow-x:hidden;cursor:none;}
@@ -61,6 +61,10 @@
   .video-ratio iframe,.video-ratio video{position:absolute;top:0;left:0;width:100%;height:100%;border:none;object-fit:contain;background:#000;}
   .work-label{margin-top:8px;font-size:12px;line-height:1.6;}
   @media(max-width:700px){.works-grid{grid-template-columns:1fr;}}
+  .filter-btn[data-filter="colorist"]{color:var(--orange);border-color:rgba(249,115,22,.35);}
+  .filter-btn[data-filter="colorist"].active,.filter-btn[data-filter="colorist"]:hover{color:var(--orange);border-color:var(--orange);}
+  .work-item[data-category="colorist"] .video-ratio{border-color:var(--orange);}
+  .work-item[data-category="colorist"] .work-label .com{color:var(--orange);}
 </style>
 </head>
 <body class="lang-en">
@@ -97,6 +101,7 @@
       <button class="filter-btn" data-filter="bts" onclick="filterWorks('bts')">bts</button>
       <button class="filter-btn" data-filter="ai-cgi" onclick="filterWorks('ai-cgi')">AI &amp; CGI</button>
       <button class="filter-btn" data-filter="lookbook" onclick="filterWorks('lookbook')">lookbook</button>
+      <button class="filter-btn" data-filter="colorist" onclick="filterWorks('colorist')">colorist</button>
     </div>
 
     <div class="works-grid" id="worksGrid">
@@ -109,6 +114,11 @@
       <div class="work-item" data-category="movie">
         <div class="video-ratio"><video controls playsinline preload="metadata"><source src="cavalli-fw22-movie.mp4#t=0.001" type="video/mp4"></video></div>
         <div class="work-label"><span class="val">"Roberto Cavalli"</span> <span class="pun">—</span> <span class="com">// FW 22 · movie</span></div>
+      </div>
+
+      <div class="work-item" data-category="colorist">
+        <div class="video-ratio"><iframe id="ytc1" src="https://www.youtube.com/embed/UBTqCqQl2fY?start=299&rel=0&modestbranding=1&color=white&enablejsapi=1" allowfullscreen allow="autoplay; encrypted-media"></iframe></div>
+        <div class="work-label"><span class="val">"Colorist Reel"</span> <span class="pun">—</span> <span class="com">// colorist</span></div>
       </div>
 
       <div class="work-item" data-category="social">
@@ -134,6 +144,7 @@
   </div>
 </div>
 
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
   const cur=document.getElementById('cursor');
   document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
@@ -142,12 +153,23 @@
   setTimeout(hintTabs,1500);setInterval(hintTabs,15000);
   const g=document.getElementById('gutter');
   for(let i=1;i<=60;i++){const d=document.createElement('div');d.className='ln';d.textContent=i===60?'★':i;if(i===60){d.style.color='var(--blue)';d.style.fontSize='10px';}g.appendChild(d);}
+
+  var ytPlayers=[];
+  function onYouTubeIframeAPIReady(){
+    document.querySelectorAll('.works-grid iframe').forEach(function(iframe){
+      ytPlayers.push(new YT.Player(iframe.id,{events:{onStateChange:function(e){
+        if(e.data===YT.PlayerState.PLAYING){
+          document.querySelectorAll('.works-grid video').forEach(function(v){v.pause();});
+          ytPlayers.forEach(function(p){if(p.getIframe().id!==e.target.getIframe().id)p.pauseVideo();});
+        }
+      }}}));
+    });
+  }
   document.addEventListener('DOMContentLoaded',function(){
     document.querySelectorAll('.works-grid video').forEach(function(vid){
       vid.addEventListener('play',function(){
-        document.querySelectorAll('.works-grid video').forEach(function(other){
-          if(other!==vid)other.pause();
-        });
+        document.querySelectorAll('.works-grid video').forEach(function(other){if(other!==vid)other.pause();});
+        ytPlayers.forEach(function(p){try{p.pauseVideo();}catch(e){}});
       });
     });
   });
