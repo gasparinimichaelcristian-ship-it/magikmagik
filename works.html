@@ -44,7 +44,11 @@
   .cap-place{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,0.38);letter-spacing:0.08em;font-style:italic;}
   .donate-btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--dim);padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;color:var(--dim);text-decoration:none;transition:border-color .2s,color .2s;cursor:none;margin-top:8px;}
   .donate-btn:hover{border-color:var(--yellow);color:var(--yellow);}
-  .version{font-size:10px;color:rgba(255,255,255,0.12);letter-spacing:.15em;font-style:italic;margin-top:8px;display:block;}
+  .version{font-size:10px;color:rgba(255,255,255,0.12);letter-spacing:.15em;font-style:normal;margin-top:8px;display:block;}
+  body.mode-readable .version{font-family:'Plus Jakarta Sans',sans-serif;color:rgba(28,26,24,0.18);}
+  .footer-copy{font-size:10px;letter-spacing:.1em;font-style:normal;display:block;color:rgba(255,255,255,0.1);margin-top:4px;}
+  body.mode-readable .footer-copy{font-family:'Plus Jakarta Sans',sans-serif;color:rgba(28,26,24,0.18);}
+  body.mode-readable .vision-support{display:none;}
   ::-webkit-scrollbar{width:5px;}
   ::-webkit-scrollbar-track{background:var(--bg2);}
   ::-webkit-scrollbar-thumb{background:#333;}
@@ -190,15 +194,17 @@
 
     <span class="L empty"></span>
     <span class="L empty"></span>
-    <span class="L com" data-en>// support the vision</span>
-    <span class="L com" data-it>// supporta la visione</span>
-    <a class="donate-btn" href="https://www.paypal.com/donate/?business=heymagikmagik%40gmail.com&currency_code=EUR" target="_blank">
-      <span data-en>// donate via paypal</span>
-      <span data-it>// dona via paypal</span>
-    </a>
-    <span class="L empty"></span>
-    <span class="L empty"></span>
-    <span class="L com">// © 2026 MAGIK SRLS · VERONA, IT · P.IVA 05119420239</span>
+    <div class="vision-support">
+      <span class="L com" data-en>// support the vision</span>
+      <span class="L com" data-it>// supporta la visione</span>
+      <a class="donate-btn" href="https://www.paypal.com/donate/?business=heymagikmagik%40gmail.com&currency_code=EUR" target="_blank">
+        <span data-en>// donate via paypal</span>
+        <span data-it>// dona via paypal</span>
+      </a>
+      <span class="L empty"></span>
+      <span class="L empty"></span>
+    </div>
+    <span class="footer-copy">// © 2026 MAGIK SRLS · VERONA, IT · P.IVA 05119420239</span>
     <span class="version">// v1.4 — 2026.05.01</span>
 
   </div>
