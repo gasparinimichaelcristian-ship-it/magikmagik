@@ -60,12 +60,15 @@
   .filter-btn{background:none;border:1px solid var(--line);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 14px;cursor:none;transition:color .2s,border-color .2s;letter-spacing:.05em;}
   .filter-btn.active{color:var(--green);border-color:var(--green);}
   .filter-btn:hover{color:var(--white);border-color:var(--dim);}
-  .works-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .works-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .work-item{grid-column:span 2;}
+  .work-item.vertical-item{grid-column:span 1;}
   .video-ratio{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border:1px solid var(--line);}
   .video-ratio.vertical{padding-bottom:177.78%;}
   .video-ratio iframe,.video-ratio video{position:absolute;top:0;left:0;width:100%;height:100%;border:none;object-fit:contain;background:#000;}
   .work-label{margin-top:8px;font-size:12px;line-height:1.6;}
-  @media(max-width:700px){.works-grid{grid-template-columns:1fr;}}
+  @media(max-width:900px){.works-grid{grid-template-columns:repeat(2,1fr);}.work-item{grid-column:span 2;}.work-item.vertical-item{grid-column:span 1;}}
+  @media(max-width:500px){.works-grid{grid-template-columns:1fr;}.work-item,.work-item.vertical-item{grid-column:span 1;}}
   .filter-btn[data-filter="colorist"]{color:var(--orange);border-color:rgba(249,115,22,.35);}
   .filter-btn[data-filter="colorist"].active,.filter-btn[data-filter="colorist"]:hover{color:var(--orange);border-color:var(--orange);}
   .work-item[data-category="colorist"] .video-ratio{border-color:var(--orange);}
@@ -161,7 +164,7 @@
         <div class="work-label"><span class="val">"Great Lengths"</span> <span class="pun">—</span> <span class="com">// movie</span></div>
       </div>
 
-      <div class="work-item" data-category="movie">
+      <div class="work-item vertical-item" data-category="movie">
         <div class="video-ratio vertical"><video controls playsinline preload="metadata"><source src="cindy-cavalli-vegas-movie.mp4#t=0.001" type="video/mp4"></video></div>
         <div class="work-label"><span class="val">"Cindy x Cavalli in Vegas"</span> <span class="pun">—</span> <span class="com">// movie</span></div>
       </div>
@@ -221,7 +224,7 @@
         <div class="work-label"><span class="val">"EC"</span> <span class="pun">—</span> <span class="com">// social</span></div>
       </div>
 
-      <div class="work-item" data-category="social">
+      <div class="work-item vertical-item" data-category="social">
         <div class="video-ratio vertical"><video controls playsinline preload="metadata"><source src="flora-fdt-social.mp4#t=0.001" type="video/mp4"></video></div>
         <div class="work-label"><span class="val">"Flora x FDT"</span> <span class="pun">—</span> <span class="com">// social</span></div>
       </div>
