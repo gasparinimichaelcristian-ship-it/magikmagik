@@ -83,16 +83,19 @@
   .diary-intro-readable{display:none;font-style:normal;}
   body.mode-readable .diary-intro-dev{display:none;}
   body.mode-readable .diary-intro-readable{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dim);font-style:normal;line-height:1.75;min-height:26.6px;}
+  body.mode-readable.lang-en .diary-intro-readable[data-it]{display:none;}
+  body.mode-readable.lang-it .diary-intro-readable[data-en]{display:none;}
+  body.mode-readable .tab-ext{display:none;}
 </style>
 </head>
 <body class="lang-en"><script>if(localStorage.getItem('magik-mode')==='readable')document.body.classList.add('mode-readable');</script>
 <div class="cursor" id="cursor"></div>
 
 <div class="topbar">
-  <a class="tab" href="magik.html"><span class="tab-dot"></span>magik.js</a>
-  <a class="tab" href="works.html">works.js</a>
-  <a class="tab" href="timeline.html">timeline.js</a>
-  <a class="tab active" href="diary-la.html">diary-LA.js</a>
+  <a class="tab" href="magik.html"><span class="tab-dot"></span>magik<span class="tab-ext">.js</span></a>
+  <a class="tab" href="works.html">works<span class="tab-ext">.js</span></a>
+  <a class="tab" href="timeline.html">timeline<span class="tab-ext">.js</span></a>
+  <a class="tab active" href="diary-la.html">diary-LA<span class="tab-ext">.js</span></a>
   <div class="topbar-right">
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
     <span class="lang-sep">/</span>

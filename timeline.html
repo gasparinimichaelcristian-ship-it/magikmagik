@@ -94,16 +94,22 @@
   @media(max-width:680px){body.mode-readable .tab{padding:0 10px!important;font-size:10px!important;}}
   /* ── DEV MODE star size ── */
   body:not(.mode-readable) .wordmark .star-back{font-size:1.15em;}
+  /* ── READABLE tab .js + timeline intro ── */
+  body.mode-readable .tab-ext{display:none;}
+  .timeline-intro-dev{display:block;}
+  .timeline-intro-readable{display:none;font-style:normal;}
+  body.mode-readable .timeline-intro-dev{display:none;}
+  body.mode-readable .timeline-intro-readable{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dim);font-style:normal;line-height:1.75;min-height:26.6px;}
 </style>
 </head>
 <body class="lang-en"><script>if(localStorage.getItem('magik-mode')==='readable')document.body.classList.add('mode-readable');</script>
 <div class="cursor" id="cursor"></div>
 
 <div class="topbar">
-  <a class="tab" href="magik.html"><span class="tab-dot"></span>magik.js</a>
-  <a class="tab" href="works.html">works.js</a>
-  <a class="tab active" href="timeline.html">timeline.js</a>
-  <a class="tab" href="diary-la.html">diary-LA.js</a>
+  <a class="tab" href="magik.html"><span class="tab-dot"></span>magik<span class="tab-ext">.js</span></a>
+  <a class="tab" href="works.html">works<span class="tab-ext">.js</span></a>
+  <a class="tab active" href="timeline.html">timeline<span class="tab-ext">.js</span></a>
+  <a class="tab" href="diary-la.html">diary-LA<span class="tab-ext">.js</span></a>
   <div class="topbar-right">
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
     <span class="lang-sep">/</span>
@@ -119,8 +125,10 @@
     <div class="wordmark"><span>M</span><a class="star-back" href="diary-la.html">★</a><span>GIK</span></div>
     <button class="mode-toggle-mobile" onclick="toggleMode()">◐</button>
 
-    <span class="L com" data-en>// michael c. gasparini — the vision continues and evolves</span>
-    <span class="L com" data-it>// michael c. gasparini — la visione continua e si sviluppa</span>
+    <span class="L com timeline-intro-dev" data-en>// michael c. gasparini — the vision continues and evolves</span>
+    <span class="L com timeline-intro-dev" data-it>// michael c. gasparini — la visione continua e si sviluppa</span>
+    <span class="timeline-intro-readable" data-en>The vision continues and evolves</span>
+    <span class="timeline-intro-readable" data-it>La visione continua e si sviluppa</span>
     <span class="L empty"></span>
     <span class="L empty"></span>
 

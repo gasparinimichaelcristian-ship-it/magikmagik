@@ -101,19 +101,17 @@
   /* ── READABLE works ── */
   body.mode-readable .works-subtitle{display:none;}
   body.mode-readable .filter-bar .com{display:none;}
-  .readable-reel{display:none;}
-  body.mode-readable .readable-reel{display:block;max-width:540px;margin-bottom:36px;}
-  body.mode-readable .r-reel-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:var(--muted);letter-spacing:.08em;margin-bottom:10px;}
+  body.mode-readable .tab-ext{display:none;}
 </style>
 </head>
 <body class="lang-en"><script>if(localStorage.getItem('magik-mode')==='readable')document.body.classList.add('mode-readable');</script>
 <div class="cursor" id="cursor"></div>
 
 <div class="topbar">
-  <a class="tab" href="magik.html"><span class="tab-dot"></span>magik.js</a>
-  <a class="tab active" href="works.html">works.js</a>
-  <a class="tab" href="timeline.html">timeline.js</a>
-  <a class="tab" href="diary-la.html">diary-LA.js</a>
+  <a class="tab" href="magik.html"><span class="tab-dot"></span>magik<span class="tab-ext">.js</span></a>
+  <a class="tab active" href="works.html">works<span class="tab-ext">.js</span></a>
+  <a class="tab" href="timeline.html">timeline<span class="tab-ext">.js</span></a>
+  <a class="tab" href="diary-la.html">diary-LA<span class="tab-ext">.js</span></a>
   <div class="topbar-right">
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
     <span class="lang-sep">/</span>
@@ -133,20 +131,13 @@
     <span class="L com works-subtitle" data-it>// selected works — moda, lusso, branded content</span>
     <span class="L empty"></span>
 
-    <div class="readable-reel">
-      <p class="r-reel-label" data-en>Showreel AI+CGI · 2025</p>
-      <p class="r-reel-label" data-it>Showreel AI+CGI · 2025</p>
-      <div class="video-ratio">
-        <iframe src="https://www.youtube.com/embed/ISrpPqDrbt4?rel=0&modestbranding=1&color=white" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-      </div>
-    </div>
-
     <div class="filter-bar">
       <span class="com" style="font-size:11px;margin-right:4px;">// filter:</span>
       <button class="filter-btn active" data-filter="all" onclick="filterWorks('all')">all</button>
       <button class="filter-btn" data-filter="movie" onclick="filterWorks('movie')">movie</button>
       <button class="filter-btn" data-filter="social" onclick="filterWorks('social')">social</button>
       <button class="filter-btn" data-filter="ai-cgi" onclick="filterWorks('ai-cgi')">AI &amp; CGI</button>
+      <button class="filter-btn" data-filter="showreel" onclick="filterWorks('showreel')">showreel</button>
       <button class="filter-btn" data-filter="colorist" onclick="filterWorks('colorist')">colorist</button>
     </div>
 
@@ -160,6 +151,11 @@
       <div class="work-item" data-category="movie">
         <div class="video-ratio"><video controls playsinline preload="metadata"><source src="cavalli-fw22-movie.mp4#t=0.001" type="video/mp4"></video></div>
         <div class="work-label"><span class="val">"Roberto Cavalli"</span> <span class="pun">—</span> <span class="com">// FW 22 · movie</span></div>
+      </div>
+
+      <div class="work-item" data-category="showreel">
+        <div class="video-ratio"><iframe id="ytshowreel" src="https://www.youtube.com/embed/ISrpPqDrbt4?rel=0&modestbranding=1&color=white&enablejsapi=1" allowfullscreen allow="autoplay; encrypted-media"></iframe></div>
+        <div class="work-label"><span class="val">"MAGIK Showreel"</span> <span class="pun">—</span> <span class="com">// AI+CGI · 2025</span></div>
       </div>
 
       <div class="work-item" data-category="colorist">
@@ -218,7 +214,7 @@
 
   var ytPlayers=[];
   function onYouTubeIframeAPIReady(){
-    document.querySelectorAll('.works-grid iframe').forEach(function(iframe){
+    document.querySelectorAll('.works-grid iframe[id]').forEach(function(iframe){
       ytPlayers.push(new YT.Player(iframe.id,{events:{onStateChange:function(e){
         if(e.data===YT.PlayerState.PLAYING){
           document.querySelectorAll('.works-grid video').forEach(function(v){v.pause();});

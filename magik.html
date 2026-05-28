@@ -118,14 +118,13 @@
   /* ── READABLE MICHAEL ── */
   .readable-michael{display:none;}
   body.mode-readable .readable-michael{display:block;margin-bottom:28px;}
-  body.mode-readable .readable-michael .r-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:var(--white);margin-bottom:4px;letter-spacing:.01em;}
-  body.mode-readable .readable-michael .r-role-line{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--muted);letter-spacing:.04em;margin-bottom:22px;}
+  body.mode-readable .readable-michael .r-loc-after{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:var(--muted);letter-spacing:.04em;margin-top:4px;}
   body.mode-readable #michael-section>.L{display:none;}
-  /* ── READABLE MAGIK section — only video ── */
-  body.mode-readable #hero .text-side{display:none;}
-  body.mode-readable #hero .two-col{grid-template-columns:1fr;}
-  body.mode-readable #hero .video-side{max-width:540px;}
+  /* ── READABLE MAGIK section — hidden ── */
+  body.mode-readable #hero{display:none;}
   body.mode-readable .sep[data-label="// magik"]{display:none;}
+  /* ── READABLE tab .js ── */
+  body.mode-readable .tab-ext{display:none;}
   /* ── READABLE CONTACT ── */
   .readable-contact{display:none;}
   body.mode-readable .readable-contact{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
@@ -139,10 +138,10 @@
 <div class="cursor" id="cursor"></div>
 
 <div class="topbar">
-  <div class="tab active"><span class="tab-dot"></span>magik.js</div>
-  <a class="tab" href="works.html" style="text-decoration:none;">works.js</a>
-  <a class="tab" href="timeline.html" style="text-decoration:none;">timeline.js</a>
-  <a class="tab" href="diary-la.html" style="text-decoration:none;">diary-LA.js</a>
+  <div class="tab active"><span class="tab-dot"></span>magik<span class="tab-ext">.js</span></div>
+  <a class="tab" href="works.html" style="text-decoration:none;">works<span class="tab-ext">.js</span></a>
+  <a class="tab" href="timeline.html" style="text-decoration:none;">timeline<span class="tab-ext">.js</span></a>
+  <a class="tab" href="diary-la.html" style="text-decoration:none;">diary-LA<span class="tab-ext">.js</span></a>
   <div class="topbar-right">
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
     <span class="lang-sep">/</span>
@@ -161,11 +160,9 @@
     <!-- MICHAEL SECTION (FIRST) -->
     <div class="section" id="michael-section">
       <div class="readable-michael">
-        <p class="r-name">Michael C. Gasparini</p>
-        <p class="r-role-line" data-en>Director &amp; Founder of MAGIK · Verona, IT · Los Angeles, CA</p>
-        <p class="r-role-line" data-it>Regista e Fondatore di MAGIK · Verona, IT · Los Angeles, CA</p>
         <p class="r-body" data-en>Michael C. Gasparini is a director and founder of MAGIK — a creative lab based in Verona, active between Italy and Los Angeles. His work spans fashion films, branded content and animatics, with hands-on command of CGI and AI-assisted production. The approach is pragmatic: real set when it matters, CGI when it's smarter, AI when it's faster — or simply impossible otherwise.</p>
         <p class="r-body" data-it>Michael C. Gasparini è un regista e fondatore di MAGIK — un laboratorio creativo con base a Verona, attivo tra Italia e Los Angeles. Il suo lavoro spazia tra fashion film, branded content e animatic, con padronanza diretta di CGI e produzione assistita dall'AI. L'approccio è pragmatico: set reale quando conta, CGI quando è più smart, AI quando è più veloce — o semplicemente impossibile altrimenti.</p>
+        <p class="r-loc-after">Verona, IT · Los Angeles, CA</p>
       </div>
       <span class="L com">// <a class="star-michael" href="michael.html" title="Michael C. Gasparini">★</a> michaelcgasparini — director, founder of magik</span>
       <span class="L empty"></span>
