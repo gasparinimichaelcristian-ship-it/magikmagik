@@ -48,7 +48,11 @@
   @media(max-width:900px){.two-col{grid-template-columns:1fr;}}
   .donate-btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--dim);padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;color:var(--dim);text-decoration:none;transition:border-color .2s,color .2s;cursor:none;margin-top:8px;}
   .donate-btn:hover{border-color:var(--yellow);color:var(--yellow);}
-  .version{font-size:10px;color:rgba(255,255,255,0.12);letter-spacing:.15em;font-style:italic;margin-top:8px;display:block;}
+  .version{font-size:10px;color:rgba(255,255,255,0.12);letter-spacing:.15em;font-style:normal;margin-top:8px;display:block;}
+  body.mode-readable .version{font-family:'Plus Jakarta Sans',sans-serif;color:rgba(28,26,24,0.18);}
+  .footer-copy{font-size:10px;letter-spacing:.1em;font-style:normal;display:block;color:rgba(255,255,255,0.1);margin-top:4px;}
+  body.mode-readable .footer-copy{font-family:'Plus Jakarta Sans',sans-serif;color:rgba(28,26,24,0.18);}
+  body.mode-readable .vision-support{display:none;}
   a.vl{color:var(--green);text-decoration:none;border-bottom:1px solid rgba(78,201,148,.25);}
   a.vl:hover{border-color:var(--green);}
   ::-webkit-scrollbar{width:5px;}
@@ -107,10 +111,11 @@
   body.mode-readable .donate-btn:hover{background:none;border-color:var(--green);color:var(--green);}
   /* Collaborations readable */
   .readable-collabs{display:none;}
-  body.mode-readable .readable-collabs{display:block;}
+  body.mode-readable .readable-collabs{display:none;}
   body.mode-readable .collab-block>.L{display:none;}
   body.mode-readable .r-collab-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:var(--muted);letter-spacing:.06em;font-style:italic;margin-bottom:6px;}
   body.mode-readable .r-collab-list{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dim);line-height:1.85;}
+  body.mode-readable .r-clients{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:var(--muted);margin-top:10px;line-height:1.7;}
   .mode-toggle-mobile{display:inline-flex;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:50%;color:var(--muted);font-size:16px;padding:0;width:32px;height:32px;cursor:none;transition:color .2s,border-color .2s;margin-bottom:24px;}
   .mode-toggle-mobile:hover{color:var(--white);border-color:var(--dim);}
   body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}
@@ -165,7 +170,8 @@
       <div class="readable-michael">
         <p class="r-body" data-en>Michael C. Gasparini is a director and founder of MAGIK — a creative lab based in Verona, active between Italy and Los Angeles. His work spans fashion films, branded content and animatics, with hands-on command of CGI and AI-assisted production. The approach is pragmatic: real set when it matters, CGI when it's smarter, AI when it's faster — or simply impossible otherwise.</p>
         <p class="r-body" data-it>Michael C. Gasparini è un regista e fondatore di MAGIK — un laboratorio creativo con base a Verona, attivo tra Italia e Los Angeles. Il suo lavoro spazia tra fashion film, branded content e animatic, con padronanza diretta di CGI e produzione assistita dall'AI. L'approccio è pragmatico: set reale quando conta, CGI quando è più smart, AI quando è più veloce — o semplicemente impossibile altrimenti.</p>
-        <p class="r-loc-after">Verona, IT · Los Angeles, CA</p>
+        <p class="r-clients" data-en>Tezenis, Falconeri, Intimissimi, Calzedonia, Emporio Armani, Versace Jeans, Bulgari, Diesel, Tommy Hilfiger, Roberto Cavalli, Puma, SKY, Damiani, Sportmax, Pasquale Bruni, Great Lengths, Rue Madam Paris, 6AM</p>
+        <p class="r-clients" data-it>Tezenis, Falconeri, Intimissimi, Calzedonia, Emporio Armani, Versace Jeans, Bulgari, Diesel, Tommy Hilfiger, Roberto Cavalli, Puma, SKY, Damiani, Sportmax, Pasquale Bruni, Great Lengths, Rue Madam Paris, 6AM</p>
       </div>
       <span class="L com">// <a class="star-michael" href="michael.html" title="Michael C. Gasparini">★</a> michaelcgasparini — director, founder of magik</span>
       <span class="L empty"></span>
@@ -255,16 +261,18 @@
         <a href="https://youtube.com/@heymagikmagik" target="_blank"><span class="rc-type">youtube</span><span>@heymagikmagik</span></a>
         <a href="https://instagram.com/heymagikmagik" target="_blank"><span class="rc-type">instagram</span><span>@heymagikmagik</span></a>
       </div>
-      <hr class="sep" data-label="">
-      <span class="L com" data-en>// support the vision</span>
-      <span class="L com" data-it>// supporta la visione</span>
-      <a class="donate-btn" href="https://www.paypal.com/donate/?business=heymagikmagik%40gmail.com&currency_code=EUR" target="_blank">
-        <span data-en>// donate via paypal</span>
-        <span data-it>// dona via paypal</span>
-      </a>
-      <span class="L empty"></span>
-      <span class="L empty"></span>
-      <span class="L com">// © 2026 MAGIK SRLS · VERONA, IT · P.IVA 05119420239</span>
+      <div class="vision-support">
+        <hr class="sep" data-label="">
+        <span class="L com" data-en>// support the vision</span>
+        <span class="L com" data-it>// supporta la visione</span>
+        <a class="donate-btn" href="https://www.paypal.com/donate/?business=heymagikmagik%40gmail.com&currency_code=EUR" target="_blank">
+          <span data-en>// donate via paypal</span>
+          <span data-it>// dona via paypal</span>
+        </a>
+        <span class="L empty"></span>
+        <span class="L empty"></span>
+      </div>
+      <span class="footer-copy">// © 2026 MAGIK SRLS · VERONA, IT · P.IVA 05119420239</span>
       <span class="version">// v2.0 — 2026.05.25</span>
     </div>
 
