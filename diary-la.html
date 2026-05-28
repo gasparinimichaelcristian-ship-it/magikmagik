@@ -67,7 +67,9 @@
   body.mode-readable .L,body.mode-readable .com{font-family:'Plus Jakarta Sans',sans-serif;}
   body.mode-readable .donate-btn{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.05em;}
   body.mode-readable .cap-desc,body.mode-readable .cap-year,body.mode-readable .cap-place{font-family:'Plus Jakarta Sans',sans-serif;}
-  body.mode-readable .cursor{background:var(--dim);}
+  body.mode-readable .cursor{display:none;}
+  body.mode-readable *{cursor:auto;}
+  body.mode-readable a, body.mode-readable button{cursor:pointer;}
   body.mode-readable .com{font-style:italic;letter-spacing:.01em;}
   body.mode-readable .gutter{display:none!important;}
   body.mode-readable .donate-btn{background:var(--bg2);border-color:var(--line);border-radius:2px;}
@@ -76,6 +78,7 @@
   .mode-toggle-mobile:hover{color:var(--white);border-color:var(--dim);}
   body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}
   @media(max-width:680px){body.mode-readable .tab{padding:0 10px!important;font-size:10px!important;}}
+  @media(hover:none){.cursor{display:none;}body{cursor:auto;}}
   /* ── DEV MODE star size ── */
   body:not(.mode-readable) .wordmark .star-y{font-size:1.15em;}
   /* ── READABLE diary intro ── */

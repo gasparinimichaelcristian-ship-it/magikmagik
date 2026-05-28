@@ -80,7 +80,9 @@
   body.mode-readable .donate-btn{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.05em;}
   body.mode-readable .sep::before{font-family:'Plus Jakarta Sans',sans-serif;}
   body.mode-readable a.vl{font-family:'Plus Jakarta Sans',sans-serif;}
-  body.mode-readable .cursor{background:var(--dim);}
+  body.mode-readable .cursor{display:none;}
+  body.mode-readable *{cursor:auto;}
+  body.mode-readable a, body.mode-readable button{cursor:pointer;}
   body.mode-readable .val{color:var(--white);}
   body.mode-readable .pun{color:var(--dim);}
   body.mode-readable .key{font-weight:400;}
@@ -113,6 +115,7 @@
   .mode-toggle-mobile:hover{color:var(--white);border-color:var(--dim);}
   body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}
   @media(max-width:680px){body.mode-readable .tab{padding:0 10px!important;font-size:10px!important;}}
+  @media(hover:none){.cursor{display:none;}body{cursor:auto;}}
   /* ── DEV MODE star size ── */
   body:not(.mode-readable) .wordmark .star-link{font-size:1.15em;}
   /* ── READABLE MICHAEL ── */
