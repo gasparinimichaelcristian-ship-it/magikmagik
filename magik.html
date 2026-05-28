@@ -135,9 +135,10 @@
   body.mode-readable .tab-ext{display:none;}
   /* ── READABLE CONTACT ── */
   .readable-contact{display:none;}
-  body.mode-readable .readable-contact{display:flex;flex-direction:column;gap:6px;margin-bottom:28px;}
-  body.mode-readable .readable-contact a{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--white);text-decoration:none;transition:color .2s;}
+  body.mode-readable .readable-contact{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:28px;}
+  body.mode-readable .readable-contact a{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--dim);text-decoration:none;transition:color .2s;}
   body.mode-readable .readable-contact a:hover{color:var(--yellow);}
+  body.mode-readable .readable-contact .rc-sep{color:var(--muted);font-size:11px;}
   body.mode-readable .contact-code-block{display:none;}
 </style>
 </head>
@@ -167,8 +168,8 @@
     <!-- MICHAEL SECTION (FIRST) -->
     <div class="section" id="michael-section">
       <div class="readable-michael">
-        <p class="r-body" data-en>Michael C. Gasparini is a director and founder of MAGIK, a creative lab based in Verona, active between Italy and Los Angeles. His work spans fashion films, branded content and animatics, with hands-on command of CGI and AI-assisted production. The approach is pragmatic: real set when it matters, CGI when it's smarter, AI when it's faster, or simply impossible otherwise.</p>
-        <p class="r-body" data-it>Michael C. Gasparini è un regista e fondatore di MAGIK, un laboratorio creativo con base a Verona, attivo tra Italia e Los Angeles. Il suo lavoro spazia tra fashion film, branded content e animatic, con padronanza diretta di CGI e produzione assistita dall'AI. L'approccio è pragmatico: set reale quando conta, CGI quando è più smart, AI quando è più veloce, o semplicemente impossibile altrimenti.</p>
+        <p class="r-body" data-en>Michael C. Gasparini is a director and founder of MAGIK, a creative lab based in Verona, active between Italy and Los Angeles. His work spans fashion films, branded content and animatics, with hands-on command of CGI and AI-assisted production. Wide technical skills, sharper creative identity, smarter delegation.</p>
+        <p class="r-body" data-it>Michael C. Gasparini è un regista e fondatore di MAGIK, un laboratorio creativo con base a Verona, attivo tra Italia e Los Angeles. Il suo lavoro spazia tra fashion film, branded content e animatic, con padronanza diretta di CGI e produzione assistita dall'AI. Competenze tecniche ampie, identità creativa più precisa, delega più intelligente.</p>
         <p class="r-clients" data-en>Tezenis, Falconeri, Intimissimi, Calzedonia, Emporio Armani, Versace Jeans, Bulgari, Diesel, Tommy Hilfiger, Roberto Cavalli, Puma, SKY, Damiani, Sportmax, Pasquale Bruni, Great Lengths, Rue Madam Paris, 6AM</p>
         <p class="r-clients" data-it>Tezenis, Falconeri, Intimissimi, Calzedonia, Emporio Armani, Versace Jeans, Bulgari, Diesel, Tommy Hilfiger, Roberto Cavalli, Puma, SKY, Damiani, Sportmax, Pasquale Bruni, Great Lengths, Rue Madam Paris, 6AM</p>
       </div>
@@ -250,14 +251,13 @@
     <div class="section reveal" id="contact">
       <div class="contact-code-block">
         <span class="L"><span class="pun">email:     </span><a class="vl" href="mailto:maikproject@yahoo.it"><span class="val">"maikproject@yahoo.it"</span></a></span>
-        <span class="L"><span class="pun">youtube:   </span><a class="vl" href="https://youtube.com/@heymagikmagik" target="_blank"><span class="val">"@heymagikmagik"</span></a></span>
-        <span class="L"><span class="pun">instagram: </span><a class="vl" href="https://instagram.com/heymagikmagik" target="_blank"><span class="val">"@heymagikmagik"</span></a></span>
+        <span class="L"><span class="pun">instagram: </span><a class="vl" href="https://www.instagram.com/michaelcgasparini/" target="_blank"><span class="val">"@michaelcgasparini"</span></a></span>
         <span class="L empty"></span>
         <span class="L empty"></span>
       </div>
       <div class="readable-contact">
         <a href="mailto:maikproject@yahoo.it">maikproject@yahoo.it</a>
-        <a href="https://www.youtube.com/@heymagikmagik" target="_blank">youtube</a>
+        <span class="rc-sep">·</span>
         <a href="https://www.instagram.com/michaelcgasparini/" target="_blank">instagram</a>
       </div>
       <div class="vision-support">
