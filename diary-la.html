@@ -53,9 +53,7 @@
   body.lang-en [data-it]{display:none;}
   @media(max-width:680px){.gutter{width:36px;}.ln{padding-right:8px;font-size:10px;}.content{padding:32px 20px 40px 16px;}.tab{font-size:10px;padding:0 12px;}.wordmark{font-size:clamp(40px,10vw,60px);}.star-y{font-size:clamp(40px,10vw,60px);transform:translateY(-0.08em);}}
   /* ── MODE TOGGLE ── */
-  .mode-toggle{background:none;border:1px solid var(--line);border-radius:50%;cursor:none;font-size:13px;color:var(--muted);padding:0;width:26px;height:26px;display:flex;align-items:center;justify-content:center;line-height:1;transition:color .2s,border-color .2s;margin:0 10px;flex-shrink:0;}
-  .mode-toggle:hover{color:var(--white);border-color:var(--dim);}
-  body.mode-readable .mode-toggle{color:var(--green);border-color:rgba(78,201,148,.35);}
+  .mode-toggle{display:none;}
   /* ── READABLE MODE ── */
   body.mode-readable{--bg:#EDE8DF;--bg2:#E3DDD4;--line:#D0C9BE;--white:#1C1A18;--dim:#9A9590;--muted:#7A7570;--yellow:#7A5500;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.75;background:#EDE8DF;color:var(--white);}
   body.mode-readable .topbar{background:rgba(227,221,212,0.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.07);}
@@ -74,10 +72,17 @@
   body.mode-readable .gutter{display:none!important;}
   body.mode-readable .donate-btn{background:var(--bg2);border-color:var(--line);border-radius:2px;}
   body.mode-readable .donate-btn:hover{background:none;border-color:var(--green);color:var(--green);}
-  .mode-toggle-mobile{display:none;}
-  @media(max-width:680px){.topbar .mode-toggle{display:none;}.mode-toggle-mobile{display:inline-flex;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:50%;color:var(--muted);font-size:16px;padding:0;width:32px;height:32px;cursor:none;transition:color .2s,border-color .2s;margin-bottom:24px;}body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}body.mode-readable .tab{padding:0 10px!important;font-size:10px!important;}}
+  .mode-toggle-mobile{display:inline-flex;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:50%;color:var(--muted);font-size:16px;padding:0;width:32px;height:32px;cursor:none;transition:color .2s,border-color .2s;margin-bottom:24px;}
+  .mode-toggle-mobile:hover{color:var(--white);border-color:var(--dim);}
+  body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}
+  @media(max-width:680px){body.mode-readable .tab{padding:0 10px!important;font-size:10px!important;}}
   /* ── DEV MODE star size ── */
   body:not(.mode-readable) .wordmark .star-y{font-size:1.15em;}
+  /* ── READABLE diary intro ── */
+  .diary-intro-dev{display:block;}
+  .diary-intro-readable{display:none;font-style:normal;}
+  body.mode-readable .diary-intro-dev{display:none;}
+  body.mode-readable .diary-intro-readable{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dim);font-style:normal;line-height:1.75;min-height:26.6px;}
 </style>
 </head>
 <body class="lang-en"><script>if(localStorage.getItem('magik-mode')==='readable')document.body.classList.add('mode-readable');</script>
@@ -103,14 +108,20 @@
     <div class="wordmark"><span>M</span><a class="star-y" href="magik.html" title="MAGIK">★</a><span>GIK</span></div>
     <button class="mode-toggle-mobile" onclick="toggleMode()">◐</button>
 
-    <span class="L com" data-en>// diary LA — a journey that keeps going</span>
-    <span class="L com" data-it>// diary LA — un viaggio che continua</span>
+    <span class="L com diary-intro-dev" data-en>// diary LA — a journey that keeps going</span>
+    <span class="L com diary-intro-dev" data-it>// diary LA — un viaggio che continua</span>
+    <span class="diary-intro-readable" data-en>Diary LA — a journey that keeps going</span>
+    <span class="diary-intro-readable" data-it>Diary LA — un viaggio che continua</span>
     <span class="L empty"></span>
-    <span class="L com" data-en>// the vision keeps evolving</span>
-    <span class="L com" data-it>// la visione continua ad evolversi</span>
+    <span class="L com diary-intro-dev" data-en>// the vision keeps evolving</span>
+    <span class="L com diary-intro-dev" data-it>// la visione continua ad evolversi</span>
+    <span class="diary-intro-readable" data-en>The vision keeps evolving</span>
+    <span class="diary-intro-readable" data-it>La visione continua ad evolversi</span>
     <span class="L empty"></span>
-    <span class="L com" data-en>// no AI-generated or AI-manipulated images</span>
-    <span class="L com" data-it>// nessuna immagine generata o manipolata con AI</span>
+    <span class="L com diary-intro-dev" data-en>// no AI-generated or AI-manipulated images</span>
+    <span class="L com diary-intro-dev" data-it>// nessuna immagine generata o manipolata con AI</span>
+    <span class="diary-intro-readable" data-en>No AI-generated or AI-manipulated images</span>
+    <span class="diary-intro-readable" data-it>Nessuna immagine generata o manipolata con AI</span>
     <span class="L empty"></span>
     <span class="L empty"></span>
 

@@ -65,9 +65,7 @@
     .star-link{transform:translateY(-0.08em);}
   }
   /* ── MODE TOGGLE ── */
-  .mode-toggle{background:none;border:1px solid var(--line);border-radius:50%;cursor:none;font-size:13px;color:var(--muted);padding:0;width:26px;height:26px;display:flex;align-items:center;justify-content:center;line-height:1;transition:color .2s,border-color .2s;margin:0 10px;flex-shrink:0;}
-  .mode-toggle:hover{color:var(--white);border-color:var(--dim);}
-  body.mode-readable .mode-toggle{color:var(--green);border-color:rgba(78,201,148,.35);}
+  .mode-toggle{display:none;}
   /* ── READABLE MODE ── */
   body.mode-readable{--bg:#EDE8DF;--bg2:#E3DDD4;--line:#D0C9BE;--white:#1C1A18;--dim:#9A9590;--muted:#7A7570;--yellow:#7A5500;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.75;background:var(--bg);color:var(--white);}
   body.mode-readable .topbar{background:rgba(227,221,212,0.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.07);}
@@ -111,8 +109,10 @@
   body.mode-readable .collab-block>.L{display:none;}
   body.mode-readable .r-collab-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:var(--muted);letter-spacing:.06em;font-style:italic;margin-bottom:6px;}
   body.mode-readable .r-collab-list{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dim);line-height:1.85;}
-  .mode-toggle-mobile{display:none;}
-  @media(max-width:680px){.topbar .mode-toggle{display:none;}.mode-toggle-mobile{display:inline-flex;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:50%;color:var(--muted);font-size:16px;padding:0;width:32px;height:32px;cursor:none;transition:color .2s,border-color .2s;margin-bottom:24px;}body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}body.mode-readable .tab{padding:0 10px!important;font-size:10px!important;}}
+  .mode-toggle-mobile{display:inline-flex;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:50%;color:var(--muted);font-size:16px;padding:0;width:32px;height:32px;cursor:none;transition:color .2s,border-color .2s;margin-bottom:24px;}
+  .mode-toggle-mobile:hover{color:var(--white);border-color:var(--dim);}
+  body.mode-readable .mode-toggle-mobile{color:var(--green);border-color:rgba(78,201,148,.4);}
+  @media(max-width:680px){body.mode-readable .tab{padding:0 10px!important;font-size:10px!important;}}
   /* ── DEV MODE star size ── */
   body:not(.mode-readable) .wordmark .star-link{font-size:1.15em;}
   /* ── READABLE MICHAEL ── */
@@ -164,7 +164,8 @@
         <p class="r-name">Michael C. Gasparini</p>
         <p class="r-role-line" data-en>Director &amp; Founder of MAGIK · Verona, IT · Los Angeles, CA</p>
         <p class="r-role-line" data-it>Regista e Fondatore di MAGIK · Verona, IT · Los Angeles, CA</p>
-        <div class="r-tags"><span>Film &amp; Video</span><span>CGI</span><span>AI</span></div>
+        <p class="r-body" data-en>Michael C. Gasparini is a director and founder of MAGIK — a creative lab based in Verona, active between Italy and Los Angeles. His work spans fashion films, branded content and animatics, with hands-on command of CGI and AI-assisted production. The approach is pragmatic: real set when it matters, CGI when it's smarter, AI when it's faster — or simply impossible otherwise.</p>
+        <p class="r-body" data-it>Michael C. Gasparini è un regista e fondatore di MAGIK — un laboratorio creativo con base a Verona, attivo tra Italia e Los Angeles. Il suo lavoro spazia tra fashion film, branded content e animatic, con padronanza diretta di CGI e produzione assistita dall'AI. L'approccio è pragmatico: set reale quando conta, CGI quando è più smart, AI quando è più veloce — o semplicemente impossibile altrimenti.</p>
       </div>
       <span class="L com">// <a class="star-michael" href="michael.html" title="Michael C. Gasparini">★</a> michaelcgasparini — director, founder of magik</span>
       <span class="L empty"></span>
