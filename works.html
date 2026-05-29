@@ -60,7 +60,9 @@
   .filter-btn{background:none;border:1px solid var(--line);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 14px;cursor:none;transition:color .2s,border-color .2s;letter-spacing:.05em;}
   .filter-btn.active{color:var(--green);border-color:var(--green);}
   .filter-btn:hover{color:var(--white);border-color:var(--dim);}
-  .works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .works-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;}
+  .work-item{grid-column:span 2;}
+  .work-item.vertical-item{grid-column:span 1;}
   .video-ratio{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border:1px solid var(--line);}
   .video-ratio.vertical{padding-bottom:177.78%;}
   .video-ratio.r-1500{padding-bottom:72%;}
@@ -68,8 +70,8 @@
   .video-ratio.r-portrait{padding-bottom:125%;}
   .video-ratio iframe,.video-ratio video{position:absolute;top:0;left:0;width:100%;height:100%;border:none;object-fit:contain;background:#000;}
   .work-label{margin-top:8px;font-size:12px;line-height:1.6;}
-  @media(max-width:900px){.works-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:500px){.works-grid{grid-template-columns:1fr;}}
+  @media(max-width:900px){.works-grid{grid-template-columns:repeat(4,1fr);}.work-item{grid-column:span 2;}.work-item.vertical-item{grid-column:span 1;}}
+  @media(max-width:500px){.works-grid{grid-template-columns:repeat(2,1fr);}.work-item,.work-item.vertical-item{grid-column:span 2;}}
   .filter-btn[data-filter="colorist"]{color:var(--orange);border-color:rgba(249,115,22,.35);}
   .filter-btn[data-filter="colorist"].active,.filter-btn[data-filter="colorist"]:hover{color:var(--orange);border-color:var(--orange);}
   .work-item[data-category="colorist"] .video-ratio{border-color:var(--orange);}
@@ -147,8 +149,8 @@
     <span class="L com works-subtitle" data-it>// selected works — moda, lusso, branded content</span>
     <span class="L com works-update-dev" data-en>// new and old works uploaded every week</span>
     <span class="L com works-update-dev" data-it>// nuovi e vecchi lavori caricati ogni settimana</span>
-    <span class="works-update-readable" data-en>New and old works uploaded every week.</span>
-    <span class="works-update-readable" data-it>Nuovi e vecchi lavori caricati ogni settimana.</span>
+    <span class="works-update-readable" data-en>A growing archive, updated every week.</span>
+    <span class="works-update-readable" data-it>Un archivio in crescita, aggiornato ogni settimana.</span>
     <span class="L empty"></span>
 
     <div class="filter-bar">
