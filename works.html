@@ -116,7 +116,9 @@
   body.mode-readable .filter-bar .com{display:none;}
   body.mode-readable .tab-ext{display:none;}
   .works-update-readable{display:none;}
-  body.mode-readable .works-update-readable{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--muted);margin-bottom:20px;font-style:italic;}
+  body.mode-readable .works-update-dev{display:none;}
+  body.mode-readable.lang-en .works-update-readable[data-en]{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--muted);margin-bottom:20px;font-style:italic;}
+  body.mode-readable.lang-it .works-update-readable[data-it]{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--muted);margin-bottom:20px;font-style:italic;}
 </style>
 </head>
 <body class="lang-en"><script>if(localStorage.getItem('magik-mode')==='readable')document.body.classList.add('mode-readable');</script>
@@ -144,8 +146,8 @@
 
     <span class="L com works-subtitle" data-en>// selected works — fashion, luxury, branded content</span>
     <span class="L com works-subtitle" data-it>// selected works — moda, lusso, branded content</span>
-    <span class="L com" data-en>// new and old works uploaded every week</span>
-    <span class="L com" data-it>// nuovi e vecchi lavori caricati ogni settimana</span>
+    <span class="L com works-update-dev" data-en>// new and old works uploaded every week</span>
+    <span class="L com works-update-dev" data-it>// nuovi e vecchi lavori caricati ogni settimana</span>
     <span class="works-update-readable" data-en>New and old works uploaded every week.</span>
     <span class="works-update-readable" data-it>Nuovi e vecchi lavori caricati ogni settimana.</span>
     <span class="L empty"></span>
