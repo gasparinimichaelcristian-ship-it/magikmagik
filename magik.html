@@ -140,6 +140,8 @@
   /* ── READABLE WORKFLOW ── */
   .readable-workflow{display:none;}
   body.mode-readable .readable-workflow{display:block;margin-bottom:32px;}
+  .r-storyboard{margin:0 0 28px;max-width:280px;}
+  .r-storyboard video{width:100%;display:block;border-radius:4px;}
   /* ── READABLE CONTACT ── */
   .readable-contact{display:none;}
   body.mode-readable .readable-contact{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:28px;}
@@ -264,8 +266,9 @@
     <div class="readable-workflow">
       <p class="r-body" data-en>I apply this method on complex productions where storytelling and visual style need to be tested before committing to the full shoot. I am currently using it to develop my first feature film, bypassing the traditional screenplay-and-storyboard pipeline in favor of a more cinematic, immediate way of designing the project from its very first frame.</p>
       <p class="r-body" data-it>Applico questo metodo su produzioni complesse dove lo storytelling e lo stile visivo devono essere testati prima di impegnarsi nelle riprese complete. Lo sto attualmente utilizzando per sviluppare il mio primo lungometraggio, superando il tradizionale pipeline sceneggiatura-storyboard a favore di un modo più cinematografico e immediato di progettare il progetto dal primo fotogramma.</p>
-      <a class="r-link" href="works.html#storyboard-ai" data-en>→ watch this video example</a>
-      <a class="r-link" href="works.html#storyboard-ai" data-it>→ guarda il video esempio</a>
+      <div class="r-storyboard">
+        <video controls playsinline preload="metadata"><source src="storyboard-ai.mp4#t=0.001" type="video/mp4"></video>
+      </div>
       <p class="r-clients" data-en>Tezenis, Falconeri, Intimissimi, Calzedonia, Emporio Armani, Versace Jeans, Bulgari, Diesel, Tommy Hilfiger, Roberto Cavalli, Puma, SKY, Damiani, Sportmax, Pasquale Bruni, Great Lengths, Rue Madam Paris, 6AM</p>
       <p class="r-clients" data-it>Tezenis, Falconeri, Intimissimi, Calzedonia, Emporio Armani, Versace Jeans, Bulgari, Diesel, Tommy Hilfiger, Roberto Cavalli, Puma, SKY, Damiani, Sportmax, Pasquale Bruni, Great Lengths, Rue Madam Paris, 6AM</p>
     </div>
